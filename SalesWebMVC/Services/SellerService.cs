@@ -28,7 +28,8 @@ namespace SalesWebMVC.Services
         public void Insert(Seller obj)
         {
             //Associa o primeiro departamento ao vendedor adicionado para resolver provisioriamente problema de ForeingKey
-            obj.Department = _context.Department.First();
+            //Após ser implentado o DepartmentId na classe Seller a linha abaixo não é mais necessária, pois o objeto Seller já vai estar estanciado com o departamento
+           // obj.Department = _context.Department.First();
             _context.Add(obj);
             _context.SaveChanges();
         }
