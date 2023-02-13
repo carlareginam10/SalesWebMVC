@@ -25,6 +25,22 @@ namespace SalesWebMVC.Services
 
         }
 
+        public Seller FindById(int id)
+        {
+           //
+            return _context.Seller.FirstOrDefault(s => s.Id == id);
+
+        }
+
+        public void Remove(int id)
+        {
+            //procura o objeto por id
+            var obj = _context.Seller.Find(id);
+            //remove obj de acordo com id
+            _context.Seller.Remove(obj);
+            _context.SaveChanges();
+        }
+
         public void Insert(Seller obj)
         {
             //Associa o primeiro departamento ao vendedor adicionado para resolver provisioriamente problema de ForeingKey
